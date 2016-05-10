@@ -1,11 +1,16 @@
 import _ from 'lodash';
 
-function handleInputChange(object, fieldName, event) {
-  _.set(object, fieldName, event.target.value);
+function handleInputChange(object, fieldName, value) {
+  _.set(object, fieldName, value);
 }
 
 function handleInputChangeAndUpdateComponent(object, fieldName, event) {
-  handleInputChange(object, fieldName, event);
+  handleInputChange(object, fieldName, event.target.value);
+  this.forceUpdate();
+}
+
+function handleInputFileChangeAndUpdateComponent(object, fieldName, value) {
+  handleInputChange(object, fieldName, value);
   this.forceUpdate();
 }
 
@@ -33,6 +38,7 @@ function focusInputByRef(component, refName = 'focus') {
 export {
   handleInputChange,
   handleInputChangeAndUpdateComponent,
+  handleInputFileChangeAndUpdateComponent,
   handleBooleanInputChange,
   handleBooleanInputChangeAndUpdateComponent,
   focusInputByRef
