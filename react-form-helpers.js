@@ -9,7 +9,7 @@ function handleInputChangeAndUpdateComponent(object, fieldName, event) {
   this.forceUpdate();
 }
 
-function handleInputFileChangeAndUpdateComponent(object, fieldName, value) {
+function handleValueChangeAndUpdateComponent(object, fieldName, value) {
   handleInputChange(object, fieldName, value);
   this.forceUpdate();
 }
@@ -38,7 +38,7 @@ function focusInputByRef(component, refName = 'focus') {
 export {
   handleInputChange,
   handleInputChangeAndUpdateComponent,
-  handleInputFileChangeAndUpdateComponent,
+  handleValueChangeAndUpdateComponent,
   handleBooleanInputChange,
   handleBooleanInputChangeAndUpdateComponent,
   focusInputByRef
