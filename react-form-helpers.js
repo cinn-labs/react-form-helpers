@@ -14,12 +14,17 @@ function handleValueChangeAndUpdateComponent(object, fieldName, value) {
 }
 
 function handleInputChangeAndUpdateComponent(object, fieldName, event) {
-  handleValueChangeAndUpdateComponent(object, fieldName, event.target.value);
+  handleValueChangeAndUpdateComponent.bind(this)(object, fieldName, event.target.value);
 }
 
 function handleChangeAndUpdateComponent(object, fieldName, data) {
-  if(_.isObject(data)) handleInputChangeAndUpdateComponent(object, fieldName, data);
-  if(_.isString(data)) handleValueChangeAndUpdateComponent(object, fieldName, data);
+  if(_.isObject(data)) handleInputChangeAndUpdateComponent.bind(this)(object, fieldName, data);
+  if(_.isString(data)) handleValueChangeAndUpdateComponent.bind(this)(object, fieldName, data);
+}
+
+function handleChange(object, fieldName, data) {
+  if(_.isObject(data)) handleInputChange(object, fieldName, data);
+  if(_.isString(data)) handleValueChange(object, fieldName, data);
 }
 
 function handleBooleanInputChange(object, fieldName, event) {
@@ -43,6 +48,11 @@ function focusInputByRef(component, refName = 'focus') {
   !!component.refs[refName] && component.refs[refName].focus();
 }
 
+function getChangeHandler(object, fieldName, component) {
+  if(!!component) return handleChangeAndUpdateComponent.bind(component, object, fieldName);
+  return handleChange.bind(null, object, fieldName);
+}
+
 export {
   handleValueChange,
   handleInputChange,
@@ -51,5 +61,6 @@ export {
   handleValueChangeAndUpdateComponent,
   handleBooleanInputChange,
   handleBooleanInputChangeAndUpdateComponent,
-  focusInputByRef
+  focusInputByRef,
+  getChangeHandler
 };
