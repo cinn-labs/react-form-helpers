@@ -4,6 +4,10 @@ function handleValueChange(object, fieldName, value) {
   _.set(object, fieldName, value);
 }
 
+function handleInputChange(object, fieldName, event) {
+  _.set(object, fieldName, event.target.value);
+}
+
 function handleValueChangeAndUpdateComponent(object, fieldName, value) {
   handleValueChange(object, fieldName, value);
   this.forceUpdate();
@@ -41,6 +45,7 @@ function focusInputByRef(component, refName = 'focus') {
 
 export {
   handleValueChange,
+  handleInputChange,
   handleChangeAndUpdateComponent,
   handleInputChangeAndUpdateComponent,
   handleValueChangeAndUpdateComponent,
