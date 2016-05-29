@@ -4,14 +4,18 @@ function handleInputChange(object, fieldName, value) {
   _.set(object, fieldName, value);
 }
 
-function handleInputChangeAndUpdateComponent(object, fieldName, event) {
-  handleInputChange(object, fieldName, event.target.value);
-  this.forceUpdate();
-}
-
 function handleValueChangeAndUpdateComponent(object, fieldName, value) {
   handleInputChange(object, fieldName, value);
   this.forceUpdate();
+}
+
+function handleInputChangeAndUpdateComponent(object, fieldName, event) {
+  handleValueChangeAndUpdateComponent(object, fieldName, event.target.value);
+}
+
+function handleChangeAndUpdateComponent(object, fieldName, data) {
+  if(_.isObject(data)) handleInputChangeAndUpdateComponent(object, fieldName, data);
+  if(_.isString(data)) handleValueChangeAndUpdateComponent(object, fieldName, data);
 }
 
 function handleBooleanInputChange(object, fieldName, event) {
@@ -37,6 +41,7 @@ function focusInputByRef(component, refName = 'focus') {
 
 export {
   handleInputChange,
+  handleChangeAndUpdateComponent,
   handleInputChangeAndUpdateComponent,
   handleValueChangeAndUpdateComponent,
   handleBooleanInputChange,
