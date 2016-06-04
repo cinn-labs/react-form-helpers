@@ -56,6 +56,7 @@ function getChangeHandler(object, fieldName, component) {
 export {
   handleValueChange,
   handleInputChange,
+  handleChange,
   handleChangeAndUpdateComponent,
   handleInputChangeAndUpdateComponent,
   handleValueChangeAndUpdateComponent,
