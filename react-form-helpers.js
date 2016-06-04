@@ -24,7 +24,7 @@ function handleChangeAndUpdateComponent(object, fieldName, data) {
 
 function handleChange(object, fieldName, data) {
   if(_.isObject(data)) handleInputChange(object, fieldName, data);
-  if(_.isString(data)) handleValueChange(object, fieldName, data);
+  handleValueChange(object, fieldName, data);
 }
 
 function handleBooleanInputChange(object, fieldName, event) {
