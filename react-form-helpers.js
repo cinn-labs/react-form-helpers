@@ -18,8 +18,8 @@ function handleInputChangeAndUpdateComponent(object, fieldName, event) {
 }
 
 function handleChangeAndUpdateComponent(object, fieldName, data) {
-  if(_.isString(data) || _.isDate(data)) handleValueChangeAndUpdateComponent.bind(this)(object, fieldName, data);
-  if(_.isObject(data)) handleInputChangeAndUpdateComponent.bind(this)(object, fieldName, data);
+  if(_.isString(data) || _.isDate(data)) return handleValueChangeAndUpdateComponent.bind(this)(object, fieldName, data);
+  if(_.isObject(data)) return handleInputChangeAndUpdateComponent.bind(this)(object, fieldName, data);
 }
 
 function handleChange(object, fieldName, data) {
