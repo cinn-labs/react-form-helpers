@@ -49,8 +49,8 @@ function focusInputByRef(component, refName = 'focus') {
 }
 
 function getChangeHandler(object, fieldName, component) {
-  if(!!component) return handleChangeAndUpdateComponent.bind(component, object, fieldName);
-  return handleChange.bind(null, object, fieldName);
+  if(!component) console.warn('[REACT FORM HELPERS] Component must be passed to change handler');
+  return handleChangeAndUpdateComponent.bind(component, object, fieldName);
 }
 
 function getStateChangeHandler(component, fieldName) {
