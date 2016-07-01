@@ -54,7 +54,7 @@ function getChangeHandler(object, fieldName, component) {
 }
 
 function getStateChangeHandler(component, fieldName) {
-  return getChangeHandler(component.state, fieldName);
+  return getChangeHandler(component.state, fieldName, component);
 }
 
 export {
