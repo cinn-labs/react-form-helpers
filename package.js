@@ -1,6 +1,6 @@
 Package.describe({
   name: 'cinn:react-form-helpers',
-  version: '1.0.4',
+  version: '1.1.0',
   summary: 'Simple react form helpers to facilitate the comunication between the component and the input data',
   git: 'https://github.com/cinn-labs/react-form-helpers',
   documentation: 'README.md'
