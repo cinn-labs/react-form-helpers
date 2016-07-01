@@ -58,8 +58,6 @@ function getStateChangeHandler(component, fieldName) {
 }
 
 export {
-  handleValueChange,
-  handleInputChange,
   handleChange,
   handleChangeAndUpdateComponent,
   handleInputChangeAndUpdateComponent,
