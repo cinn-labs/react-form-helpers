@@ -53,6 +53,10 @@ function getChangeHandler(object, fieldName, component) {
   return handleChange.bind(null, object, fieldName);
 }
 
+function getStageChangeHandler(component, fieldName) {
+  return getChangeHandler(component.state, fieldName);
+}
+
 export {
   handleValueChange,
   handleInputChange,
@@ -63,5 +67,6 @@ export {
   handleBooleanInputChange,
   handleBooleanInputChangeAndUpdateComponent,
   focusInputByRef,
-  getChangeHandler
+  getChangeHandler,
+  getStageChangeHandler
 };
